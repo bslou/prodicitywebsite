@@ -4,25 +4,29 @@ import {Button, Text, Flex, Box, Image, Input, Textarea, Link} from "@chakra-ui/
 const App = () => {
   return (
     <Box>
-      <Box id = "intro" bgImage={require('./first.png')} width={'100vw'} height={'auto'} bgSize={'100% 100%'}>
-        <Flex direction={'row'} justifyContent={'right'} gap={'5%'} paddingTop={'3%'} paddingRight={'10%'}>
-          <Link href = "#intro" bg={'transparent'} position={'absolute'} top={'4.5%'} left={'10%'}>
-            <Image src={require('./prodOne.png')} width={'70%'} height={'70%'}></Image>
-          </Link>
-          <Link href = "#about" color={'white'} fontWeight={'bold'} bg={'transparent'} border={'none'} fontSize={'3vh'}>
-            About
-          </Link>
-          <Link href = "#bosses" color={'white'} fontWeight={'bold'} bg={'transparent'} border={'none'} fontSize={'3vh'}>
-            Features
-          </Link>
-          <Link href = "#contact" color={'white'} fontWeight={'bold'} bg={'transparent'} border={'none'} fontSize={'3vh'}>
-            Contact
-          </Link>
+      <Flex id = "intro" direction={'column'} alignItems={'center'} bgImage={require('./first.png')} width={'100vw'} height={'auto'} bgSize={'100% 100%'}>
+        <Flex direction={'row'} justifyContent={'center'} paddingTop={'3%'} width={'80%'}>
+          <Flex direction={'row'} alignItems={'center'} flex={5}>
+            <Link href = "#intro" bg={'transparent'}>
+              <Image src={require('./prodOne.png')} width={'70%'} height={'70%'}></Image>
+            </Link>
+          </Flex>
+          <Flex direction={'row'} alignItems={'center'} flex={2} gap={'10%'}>
+            <Link href = "#about" color={'white'} fontWeight={'bold'} bg={'transparent'} border={'none'} fontSize={'3vh'}>
+              About
+            </Link>
+            <Link href = "#bosses" color={'white'} fontWeight={'bold'} bg={'transparent'} border={'none'} fontSize={'3vh'}>
+              Features
+            </Link> 
+            <Link href = "#contact" color={'white'} fontWeight={'bold'} bg={'transparent'} border={'none'} fontSize={'3vh'}>
+              Contact
+            </Link>
+          </Flex>
         </Flex>
 
         <br/><br/><br/>
 
-        <Flex marginLeft={'10%'} direction={'column'} width={'80%'} alignContent={'center'} alignItems={'center'} bgColor={'rgba(0, 0, 0, 0.4)'}>
+        <Flex direction={'column'} width={'80%'} alignContent={'center'} alignItems={'center'} bgColor={'rgba(0, 0, 0, 0.4)'}>
           <Image src={require('./rocket.png')} position={'absolute'} top={'15vh'} left={'45vw'} width={'8vw'} height={'8vw'} />
           <br/><br/>
           <Text color={'white'} width={'55%'} fontSize={'4vw'} fontWeight={'700'}>Getting Your Work Done Through Gaming!</Text>
@@ -39,7 +43,7 @@ const App = () => {
           </form>
           <br /><br />
         </Flex>
-      </Box>
+      </Flex>
 
       <Flex id = "about" bgGradient={'linear(to-b, #161535, #3E3B93)'} justifyContent={'center'} direction={'column'} width={'100vw'} height={'100vh'}>
         <Flex direction={'column'} width={'90vw'} borderTopRightRadius={20} borderBottomRightRadius={20} backgroundColor={'rgba(97, 94, 166, 0.75)'} padding={'5%'} >
