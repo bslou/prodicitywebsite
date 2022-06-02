@@ -2,6 +2,25 @@ import { useState } from "react";
 import {Button, Text, Flex, Box, Image, Input, Textarea, Link} from "@chakra-ui/react";
 
 const App = () => {
+
+  console.log(JSON.parse(localStorage.getItem("username")));
+
+  function WriteToFile(){
+    console.log("Exe");
+    if (localStorage.getItem("username") === null) {
+      let eml = document.getElementById('email').value;
+      let arr = [];
+      arr.push(eml);
+      localStorage.setItem("emails", JSON.stringify(arr));
+    }else{
+      let eml = document.getElementById('email').value;
+      let arr = JSON.parse(localStorage.getItem("emails"));
+      arr.push(eml);
+      localStorage.setItem("emails", JSON.stringify(arr));
+    }
+
+  }
+  
   return (
     <Box>
       <Flex id = "intro" direction={'column'} alignItems={'center'} bgImage={require('./first.png')} width={'100vw'} height={'auto'} bgSize={'100% 100%'}>
@@ -33,12 +52,11 @@ const App = () => {
           <br/>
           <Text color={'gray'} width={'55%'} fontSize = {'1vw'}>We created this software to making learning and work fun for others through games! Sign up now to get early access for Prodicity as soon as it gets released!</Text>
           <br/><br/><br/>
-          <form>
+          <form onSubmit={WriteToFile}>
             <Flex direction={'row'} justifyContent={'center'} bg={'transparent'} border={'none'} >
-              <Input boxShadow={'0 0 30px 5px #B1C7FF'} color={'white'} fontSize={'1.5vw'} bgColor={'#232152'} width={'45vw'} padding={'4%'} outline={'none'} borderTopLeftRadius={20} borderBottomLeftRadius={20} borderTopRightRadius={0} borderBottomRightRadius={0} placeholder="Add your email..."/>
-              <Button boxShadow={'0 0 30px 5px #B1C7FF'} color={'white'} bgColor={'#161535'} padding={'4%'} borderTopRightRadius={20} borderBottomRightRadius={20} borderTopLeftRadius={0} borderBottomLeftRadius={0}>
-                Get Early Access →
-              </Button>
+              <Input type = "email" required id = "email" boxShadow={'0 0 30px 5px #B1C7FF'} color={'white'} fontSize={'1.5vw'} bgColor={'#232152'} width={'45vw'} padding={'4%'} outline={'none'} borderTopLeftRadius={20} borderBottomLeftRadius={20} borderTopRightRadius={0} borderBottomRightRadius={0} placeholder="Add your email..."/>
+              <Input justifyContent={'center'} alignContent={'center'} alignItems={'center'} type="submit" fontSize={'1.2vw'} width={'15vw'} value={'Get Early Access →'} boxShadow={'0 0 30px 5px #B1C7FF'} color={'white'} bgColor={'#161535'} height={'4.9vw'} borderTopRightRadius={20} borderBottomRightRadius={20} borderTopLeftRadius={0} borderBottomLeftRadius={0} />
+
             </Flex>
           </form>
           <br /><br />
@@ -140,27 +158,26 @@ const App = () => {
         If you need help you can visit the help center or read our About Us page. We are looking forward to answering any of your questions here! We hope you enjoy the app!
         </Text>
         <Flex direction={'row'} justifyContent={'center'} margin={0}>
-        <form>
+        <form onSubmit={() => {window.open('mailto:prodicityteam@gmail.com?subject='+ document.getElementById("subj1").value + '&body=' + document.getElementById("body1").value);}}>
           <Flex direction={'column'} alignItems={'center'} justifyContent={'center'}>
             
             <Flex direction = "column" justifyContent={'center'} marginBottom={'4vh'}>
               <Text color={'white'} fontSize={'1.4vw'} fontWeight={'600'}>Email:</Text>
-              <Input boxShadow={'0 0 10px 5px #B1C7FF'} color={'white'} borderRadius={20} fontSize={'1.4vw'} bgColor={'#232152'} width={'44vw'} padding={'4%'} placeholder = {'Enter Email Here'}/>
+              <Input type = "email" required id = {"eml1"} boxShadow={'0 0 10px 5px #B1C7FF'} color={'white'} borderRadius={20} fontSize={'1.4vw'} bgColor={'#232152'} width={'44vw'} padding={'4%'} placeholder = {'Enter Email Here'}/>
             </Flex>
 
             <Flex direction = "column" justifyContent={'center'} marginBottom={'4vh'}>
               <Text color={'white'} fontSize={'1.4vw'} fontWeight={'600'}>Subject:</Text>
-              <Input boxShadow={'0 0 10px 5px #B1C7FF'} color={'white'} borderRadius={20} fontSize={'1.4vw'} bgColor={'#232152'} width={'44vw'} padding={'4%'} placeholder = {'Enter Subject Here'}/>
+              <Input type = "text" required id = {"subj1"} boxShadow={'0 0 10px 5px #B1C7FF'} color={'white'} borderRadius={20} fontSize={'1.4vw'} bgColor={'#232152'} width={'44vw'} padding={'4%'} placeholder = {'Enter Subject Here'}/>
             </Flex>
 
             <Flex direction = "column" justifyContent={'center'} marginBottom={'4vh'}>
               <Text color={'white'} fontSize={'1.4vw'} fontWeight={'600'}>Message:</Text>
-              <Textarea resize={'vertical'} boxShadow={'0 0 10px 5px #B1C7FF'} color={'white'} borderRadius={20} fontSize={'1.4vw'} bgColor={'#232152'} width={'44vw'} height={'25vh'} padding={'4%'} placeholder = {'Enter Message Here'}/>
+              <Textarea required id = {"body1"} resize={'vertical'} boxShadow={'0 0 10px 5px #B1C7FF'} color={'white'} borderRadius={20} fontSize={'1.4vw'} bgColor={'#232152'} width={'44vw'} height={'25vh'} padding={'4%'} placeholder = {'Enter Message Here'}/>
             </Flex>
             
-            <Button width={'20vw'} color={'white'} boxShadow={'0 0 10px 5px #B1C7FF'} backgroundColor={'#232152'} fontSize={'1.4vw'} padding={'4%'}>
-              Submit
-            </Button>
+            <Input type={'submit'} justifyContent={"center"} alignItems={'center'} value = "Submit" width={'20vw'} color={'white'} boxShadow={'0 0 10px 5px #B1C7FF'} backgroundColor={'#232152'} fontSize={'1.4vw'}   />
+
             
             </Flex>
           </form>
