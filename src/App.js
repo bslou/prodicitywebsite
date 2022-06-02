@@ -6,7 +6,7 @@ const App = () => {
     <Box>
       <Box id = "intro" bgImage={require('./first.png')} width={'100vw'} height={'auto'} bgSize={'100% 100%'}>
         <Flex direction={'row'} justifyContent={'right'} gap={'5%'} paddingTop={'3%'} paddingRight={'10%'}>
-          <Link href = "#intro" bg={'transparent'} position={'absolute'} top={'6%'} left={'10%'}>
+          <Link href = "#intro" bg={'transparent'} position={'absolute'} top={'4.5%'} left={'10%'}>
             <Image src={require('./prodOne.png')} width={'70%'} height={'70%'}></Image>
           </Link>
           <Link href = "#about" color={'white'} fontWeight={'bold'} bg={'transparent'} border={'none'} fontSize={'3vh'}>
