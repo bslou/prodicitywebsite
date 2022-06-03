@@ -3,11 +3,11 @@ import {Button, Text, Flex, Box, Image, Input, Textarea, Link} from "@chakra-ui/
 
 const App = () => {
 
-  console.log(JSON.parse(localStorage.getItem("username")));
+  console.log(JSON.parse(localStorage.getItem("emails")));
 
   function WriteToFile(){
-    console.log("Exe");
-    if (localStorage.getItem("username") === null) {
+    console.log("Exe " + document.getElementById('email').value);
+    if (localStorage.getItem("emails") === null) {
       let eml = document.getElementById('email').value;
       let arr = [];
       arr.push(eml);
@@ -54,7 +54,7 @@ const App = () => {
           <br/><br/><br/>
           <form onSubmit={WriteToFile}>
             <Flex direction={'row'} justifyContent={'center'} bg={'transparent'} border={'none'} >
-              <Input type = "email" required id = "email" boxShadow={'0 0 30px 5px #B1C7FF'} color={'white'} fontSize={'1.5vw'} bgColor={'#232152'} width={'45vw'} padding={'4%'} outline={'none'} borderTopLeftRadius={20} borderBottomLeftRadius={20} borderTopRightRadius={0} borderBottomRightRadius={0} placeholder="Add your email..."/>
+              <Input type = {"email"} required id = {"email"} boxShadow={'0 0 30px 5px #B1C7FF'} color={'white'} fontSize={'1.5vw'} bgColor={'#232152'} width={'45vw'} padding={'4%'} outline={'none'} borderTopLeftRadius={20} borderBottomLeftRadius={20} borderTopRightRadius={0} borderBottomRightRadius={0} placeholder="Add your email..."/>
               <Input justifyContent={'center'} alignContent={'center'} alignItems={'center'} type="submit" fontSize={'1.2vw'} width={'15vw'} value={'Get Early Access →'} boxShadow={'0 0 30px 5px #B1C7FF'} color={'white'} bgColor={'#161535'} height={'4.9vw'} borderTopRightRadius={20} borderBottomRightRadius={20} borderTopLeftRadius={0} borderBottomLeftRadius={0} />
 
             </Flex>
